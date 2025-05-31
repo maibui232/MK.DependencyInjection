@@ -1,7 +1,5 @@
 namespace MK.DependencyInjection
 {
-    using global::VContainer;
-    using global::VContainer.Unity;
     using UnityEngine;
     using VContainer;
     using VContainer.Unity;

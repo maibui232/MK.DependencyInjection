@@ -1,9 +1,8 @@
 namespace MK.DependencyInjection
 {
-    using global::VContainer.Unity;
     using VContainer.Unity;
 
-    public class SceneScope : VContainerScope
+    public sealed class SceneScope : VContainerScope
     {
 #if UNITY_EDITOR
         private void OnValidate()

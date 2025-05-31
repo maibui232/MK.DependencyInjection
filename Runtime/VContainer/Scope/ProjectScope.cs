@@ -1,6 +1,6 @@
 namespace MK.DependencyInjection
 {
-    using global::VContainer.Unity;
+    using VContainer;
     using VContainer.Unity;
 
     internal sealed class ProjectScope : VContainerScope
@@ -11,5 +11,11 @@ namespace MK.DependencyInjection
             this.parentReference = new ParentReference();
         }
 #endif
+
+        protected override void Configure(IContainerBuilder builder)
+        {
+            base.Configure(builder);
+            builder.Register<VContainerResolver>(VContainer.Lifetime.Singleton).AsImplementedInterfaces();
+        }
     }
 }
