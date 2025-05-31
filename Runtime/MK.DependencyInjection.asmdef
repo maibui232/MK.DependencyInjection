@@ -1,0 +1,5 @@
+{
+  "name": "MK.DependencyInjection",
+  "rootNamespace": "MK.DependencyInjection",
+  "references": []
+}

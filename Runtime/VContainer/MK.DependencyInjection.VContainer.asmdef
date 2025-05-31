@@ -1,0 +1,8 @@
+{
+  "name": "MK.DependencyInjection.VContainer",
+  "rootNamespace": "MK.DependencyInjection",
+  "references": [
+    "MK.DependencyInjection",
+    "VContainer"
+  ]
+}
