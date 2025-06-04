@@ -1,0 +1,16 @@
+{
+  "name": "MK.DependencyInjection.Bridge",
+  "rootNamespace": "MK.DependencyInjection.Bride",
+  "references": [
+    "VContainer",
+    "MK.DependencyInjection",
+    "MK.DependencyInjection.VContainer"
+  ],
+  "versionDefines": [
+    {
+      "name": "jp.hadashikick.vcontainer",
+      "expression": "1.16.8",
+      "define": "MK_VCONTAINER"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ namespace MK.DependencyInjection
     using global::VContainer.Unity;
     using UnityEngine;
 
-    internal sealed class VContainerResolver : IResolver
+    public sealed class VContainerResolver : IResolver
     {
         private readonly IObjectResolver objectResolver;
 

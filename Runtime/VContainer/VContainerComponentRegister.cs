@@ -1,12 +1,13 @@
 namespace MK.DependencyInjection
 {
+    using System;
     using UnityEngine;
     using VContainer;
     using VContainer.Unity;
 
     internal class VContainerComponentRegister : VContainerRegister, IComponentRegister
     {
-        public VContainerComponentRegister(RegistrationBuilder registrationBuilder) : base(registrationBuilder)
+        public VContainerComponentRegister(IContainerBuilder builder, RegistrationBuilder registrationBuilder, Type implementType) : base(builder, registrationBuilder, implementType)
         {
         }
 

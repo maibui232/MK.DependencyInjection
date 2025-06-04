@@ -14,8 +14,8 @@ namespace MK.DependencyInjection
 
         protected override void Configure(IContainerBuilder builder)
         {
-            base.Configure(builder);
             builder.Register<VContainerResolver>(VContainer.Lifetime.Singleton).AsImplementedInterfaces();
+            base.Configure(builder);
         }
     }
 }

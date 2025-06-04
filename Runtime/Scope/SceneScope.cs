@@ -7,6 +7,9 @@ namespace MK.DependencyInjection
 #if UNITY_EDITOR
         private void OnValidate()
         {
+#if MK_VCONTAINER
+            
+#endif
             this.parentReference = ParentReference.Create<ProjectScope>();
         }
 #endif

@@ -9,5 +9,6 @@ namespace MK.DependencyInjection
         IRegister AsSelf();
         IRegister AsImplementedInterfaces();
         IRegister WithParameters(params object[] parameters);
+        void      NonLazy();
     }
 }

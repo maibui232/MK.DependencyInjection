@@ -4,7 +4,7 @@ namespace MK.DependencyInjection
     using VContainer;
     using VContainer.Unity;
 
-    internal sealed class VContainerBuilder : IBuilder
+    public sealed class VContainerBuilder : IBuilder
     {
         private readonly IContainerBuilder builder;
 
@@ -15,32 +15,32 @@ namespace MK.DependencyInjection
 
         public IRegister Register(Type type, Lifetime lifetime)
         {
-            return new VContainerRegister(this.builder.Register(type, lifetime.FromVContainer()));
+            return new VContainerRegister(this.builder, this.builder.Register(type, lifetime.FromVContainer()), type);
         }
 
         IRegister IBuilder.Register<TService>(Lifetime lifetime)
         {
-            return new VContainerRegister(this.builder.Register<TService>(lifetime.FromVContainer()));
+            return new VContainerRegister(this.builder, this.builder.Register<TService>(lifetime.FromVContainer()), typeof(TService));
         }
 
         IRegister IBuilder.RegisterInstance(object instance)
         {
-            return new VContainerRegister(this.builder.RegisterInstance(instance));
+            return new VContainerRegister(this.builder, this.builder.RegisterInstance(instance), instance.GetType());
         }
 
         IComponentRegister IBuilder.RegisterComponentOnNewGameObject<TService>(Lifetime lifetime)
         {
-            return new VContainerComponentRegister(this.builder.RegisterComponentOnNewGameObject<TService>(lifetime.FromVContainer()));
+            return new VContainerComponentRegister(this.builder, this.builder.RegisterComponentOnNewGameObject<TService>(lifetime.FromVContainer()), typeof(TService));
         }
 
         IComponentRegister IBuilder.RegisterComponentInNewPrefab<TService>(TService prefab, Lifetime lifetime)
         {
-            return new VContainerComponentRegister(this.builder.RegisterComponentInNewPrefab(prefab, lifetime.FromVContainer()));
+            return new VContainerComponentRegister(this.builder, this.builder.RegisterComponentInNewPrefab(prefab, lifetime.FromVContainer()), typeof(TService));
         }
 
         IComponentRegister IBuilder.RegisterComponent<TService>()
         {
-            return new VContainerComponentRegister(this.builder.RegisterComponent(typeof(TService)));
+            return new VContainerComponentRegister(this.builder, this.builder.RegisterComponent(typeof(TService)), typeof(TService));
         }
     }
 }
